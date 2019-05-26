@@ -1,5 +1,6 @@
 package org.dominokit.domino.api.shared.extension;
 
+
 import javax.validation.constraints.NotNull;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
