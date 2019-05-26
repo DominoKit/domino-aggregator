@@ -1,0 +1,93 @@
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective settings
+[[1;33mWARNING[m] 'profiles.profile[ossrh].repositories.repository.id' must be unique but found duplicate repository with id sonatype-snapshots-repo @ /home/vegegoku/.m2/settings.xml
+[[1;33mWARNING[m] 'profiles.profile[artifactory].pluginRepositories.pluginRepository.id' must be unique but found duplicate repository with id sonatype-snapshots-repo @ /home/vegegoku/.m2/settings.xml
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.dominokit:domino-aggregator-shared:gwt-lib:1.0-rc.4-SNAPSHOT
+[[1;33mWARNING[m] 'build.plugins.plugin.version' for net.ltgt.gwt.maven:gwt-maven-plugin is missing. @ org.dominokit:domino-aggregator-shared:[unknown-version], /mnt/CODE/GIT/domino-kit/domino-aggregator/domino-aggregator-shared/pom.xml, line 39, column 21
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] domino-aggregator                                                  [pom]
+[[1;34mINFO[m] domino-aggregator-shared                                       [gwt-lib]
+[[1;34mINFO[m] domino-aggregator-apt                                              [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------< [0;36morg.dominokit:domino-aggregator[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding domino-aggregator 1.0-rc.4-SNAPSHOT                       [1/3][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.8:tree[m [1m(default-cli)[m @ [36mdomino-aggregator[0;1m ---[m
+[[1;34mINFO[m] org.dominokit:domino-aggregator:pom:1.0-rc.4-SNAPSHOT
+[[1;34mINFO[m] +- junit:junit:jar:4.12:test
+[[1;34mINFO[m] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[[1;34mINFO[m] +- org.assertj:assertj-core:jar:3.7.0:test
+[[1;34mINFO[m] \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------< [0;36morg.dominokit:domino-aggregator-shared[0;1m >---------------[m
+[[1;34mINFO[m] [1mBuilding domino-aggregator-shared 1.0-rc.4-SNAPSHOT                [2/3][m
+[[1;34mINFO[m] [1m------------------------------[ gwt-lib ]-------------------------------[m
+Downloading from vertispan-snapshots: https://repo.vertispan.com/gwt-snapshot/org/dominokit/domino-slf4j-logger/1.0-rc.4-SNAPSHOT/maven-metadata.xml
+Downloading from sonatype-snapshots-repo: https://oss.sonatype.org/content/repositories/snapshots/org/dominokit/domino-slf4j-logger/1.0-rc.4-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloaded from sonatype-snapshots-repo: https://oss.sonatype.org/content/repositories/snapshots/org/dominokit/domino-slf4j-logger/1.0-rc.4-SNAPSHOT/maven-metadata.xml (1.2 kB at 916 B/s)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.8:tree[m [1m(default-cli)[m @ [36mdomino-aggregator-shared[0;1m ---[m
+[[1;34mINFO[m] org.dominokit:domino-aggregator-shared:gwt-lib:1.0-rc.4-SNAPSHOT
+[[1;34mINFO[m] +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[[1;34mINFO[m] +- javax.validation:validation-api:jar:sources:2.0.1.Final:compile
+[[1;34mINFO[m] +- org.dominokit:domino-slf4j-logger:jar:1.0-rc.4-SNAPSHOT:compile
+[[1;34mINFO[m] +- junit:junit:jar:4.12:test
+[[1;34mINFO[m] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[[1;34mINFO[m] +- org.assertj:assertj-core:jar:3.7.0:test
+[[1;34mINFO[m] \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------< [0;36morg.dominokit:domino-aggregator-apt[0;1m >-----------------[m
+[[1;34mINFO[m] [1mBuilding domino-aggregator-apt 1.0-rc.4-SNAPSHOT                   [3/3][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+Downloading from vertispan-snapshots: https://repo.vertispan.com/gwt-snapshot/org/dominokit/domino-apt-commons/1.0-rc.4-SNAPSHOT/maven-metadata.xml
+Downloading from sonatype-snapshots-repo: https://oss.sonatype.org/content/repositories/snapshots/org/dominokit/domino-apt-commons/1.0-rc.4-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloaded from sonatype-snapshots-repo: https://oss.sonatype.org/content/repositories/snapshots/org/dominokit/domino-apt-commons/1.0-rc.4-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.2 kB/s)
+Downloading from vertispan-snapshots: https://repo.vertispan.com/gwt-snapshot/org/dominokit/domino-aggregator-shared/1.0-rc.4-SNAPSHOT/maven-metadata.xml
+Downloading from sonatype-snapshots-repo: https://oss.sonatype.org/content/repositories/snapshots/org/dominokit/domino-aggregator-shared/1.0-rc.4-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloaded from sonatype-snapshots-repo: https://oss.sonatype.org/content/repositories/snapshots/org/dominokit/domino-aggregator-shared/1.0-rc.4-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.1 kB/s)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.8:tree[m [1m(default-cli)[m @ [36mdomino-aggregator-apt[0;1m ---[m
+[[1;34mINFO[m] org.dominokit:domino-aggregator-apt:jar:1.0-rc.4-SNAPSHOT
+[[1;34mINFO[m] +- org.dominokit:domino-apt-commons:jar:1.0-rc.4-SNAPSHOT:compile
+[[1;34mINFO[m] |  +- commons-io:commons-io:jar:1.3.2:compile
+[[1;34mINFO[m] |  +- commons-lang:commons-lang:jar:2.6:compile
+[[1;34mINFO[m] |  +- com.google.auto:auto-common:jar:0.10:compile
+[[1;34mINFO[m] |  |  \- com.google.guava:guava:jar:23.5-jre:compile
+[[1;34mINFO[m] |  |     +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[[1;34mINFO[m] |  |     +- org.checkerframework:checker-qual:jar:2.0.0:compile
+[[1;34mINFO[m] |  |     +- com.google.errorprone:error_prone_annotations:jar:2.0.18:compile
+[[1;34mINFO[m] |  |     +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[[1;34mINFO[m] |  |     \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[[1;34mINFO[m] |  +- com.google.auto.service:auto-service:jar:1.0-rc4:compile
+[[1;34mINFO[m] |  \- com.squareup:javapoet:jar:1.9.0:compile
+[[1;34mINFO[m] +- org.dominokit:domino-aggregator-shared:jar:1.0-rc.4-SNAPSHOT:compile
+[[1;34mINFO[m] |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[[1;34mINFO[m] |  +- javax.validation:validation-api:jar:sources:2.0.1.Final:compile
+[[1;34mINFO[m] |  \- org.dominokit:domino-slf4j-logger:jar:1.0-rc.4-SNAPSHOT:compile
+[[1;34mINFO[m] +- junit:junit:jar:4.12:test
+[[1;34mINFO[m] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[[1;34mINFO[m] +- org.assertj:assertj-core:jar:3.7.0:test
+[[1;34mINFO[m] \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for domino-aggregator 1.0-rc.4-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] domino-aggregator .................................. [1;32mSUCCESS[m [  0.423 s]
+[[1;34mINFO[m] domino-aggregator-shared ........................... [1;32mSUCCESS[m [  1.814 s]
+[[1;34mINFO[m] domino-aggregator-apt .............................. [1;32mSUCCESS[m [  1.103 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  3.966 s
+[[1;34mINFO[m] Finished at: 2019-05-26T22:43:59+03:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
