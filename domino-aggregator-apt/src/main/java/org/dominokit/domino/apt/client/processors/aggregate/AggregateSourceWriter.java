@@ -30,6 +30,9 @@ public class AggregateSourceWriter extends AbstractSourceBuilder {
     @Override
     public List<TypeSpec.Builder> asTypeBuilder() {
         String aggregateClassName = methodElement.getAnnotation(Aggregate.class).name();
+        if(aggregateClassName.trim().isEmpty()){
+            aggregateClassName= processorUtil.capitalizeFirstLetter(methodElement.getSimpleName().toString());
+        }
 
         TypeSpec.Builder aggregateType = DominoTypeBuilder.classBuilder(aggregateClassName, AggregateProcessor.class)
                 .addModifiers(Modifier.PUBLIC);

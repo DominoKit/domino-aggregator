@@ -19,11 +19,6 @@
     <dependencies>
         <dependency>
             <groupId>org.dominokit</groupId>
-            <artifactId>gwt-validation-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.dominokit</groupId>
             <artifactId>domino-slf4j-logger</artifactId>
             <version>${project.version}</version>
         </dependency>
