@@ -15,14 +15,6 @@
     <name>domino-aggregator-shared</name>
     <url>https://github.com/DominoKit/domino-aggregator</url>
 
-
-    <dependencies>
-        <dependency>
-            <groupId>org.dominokit</groupId>
-            <artifactId>domino-slf4j-logger</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>

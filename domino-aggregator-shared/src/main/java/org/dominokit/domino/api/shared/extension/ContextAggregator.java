@@ -1,16 +1,11 @@
 package org.dominokit.domino.api.shared.extension;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class ContextAggregator {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ContextAggregator.class);
 
     private Set<ContextWait> contextsSet = new LinkedHashSet<>();
     private Set<ContextWait> removed = new LinkedHashSet<>();
@@ -23,7 +18,7 @@ public class ContextAggregator {
     }
 
     public void setupContext(ContextWait c) {
-        if(!this.contextsSet.contains(c)) {
+        if (!this.contextsSet.contains(c)) {
             this.contextsSet.add(c);
             c.onReady(() -> {
                 this.contextsSet.remove(c);
@@ -35,13 +30,13 @@ public class ContextAggregator {
         }
     }
 
-    public void reset(){
-       contextsSet.addAll(removed);
-       removed.clear();
+    public void reset() {
+        contextsSet.addAll(removed);
+        removed.clear();
     }
 
-    public void resetContext(ContextWait context){
-        if(removed.contains(context)){
+    public void resetContext(ContextWait context) {
+        if (removed.contains(context)) {
             contextsSet.add(context);
             removed.remove(context);
         }
