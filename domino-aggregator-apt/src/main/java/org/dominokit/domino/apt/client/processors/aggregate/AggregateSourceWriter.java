@@ -7,10 +7,7 @@ import org.dominokit.domino.apt.commons.AbstractSourceBuilder;
 import org.dominokit.domino.apt.commons.DominoTypeBuilder;
 
 import javax.annotation.processing.ProcessingEnvironment;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.Modifier;
-import javax.lang.model.element.VariableElement;
+import javax.lang.model.element.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -30,8 +27,8 @@ public class AggregateSourceWriter extends AbstractSourceBuilder {
     @Override
     public List<TypeSpec.Builder> asTypeBuilder() {
         String aggregateClassName = methodElement.getAnnotation(Aggregate.class).name();
-        if(aggregateClassName.trim().isEmpty()){
-            aggregateClassName= processorUtil.capitalizeFirstLetter(methodElement.getSimpleName().toString());
+        if (aggregateClassName.trim().isEmpty()) {
+            aggregateClassName = processorUtil.capitalizeFirstLetter(methodElement.getSimpleName().toString());
         }
 
         TypeSpec.Builder aggregateType = DominoTypeBuilder.classBuilder(aggregateClassName, AggregateProcessor.class)
@@ -45,44 +42,54 @@ public class AggregateSourceWriter extends AbstractSourceBuilder {
         });
 
         aggregateType.addField(FieldSpec.builder(TypeName.get(ContextAggregator.class), "contextAggregator", Modifier.PRIVATE).build());
-        aggregateType.addField(FieldSpec.builder(TypeName.get(enclosingElement.asType()), "target", Modifier.PRIVATE).build());
+        aggregateType.addField(FieldSpec.builder(wildcardTypeNameIfGeneric(), "target", Modifier.PRIVATE).build());
 
         aggregateType.addMethod(MethodSpec.constructorBuilder()
                 .addModifiers(Modifier.PUBLIC)
-                .addStatement("contextAggregator = ContextAggregator.waitFor($T.asList("+getEventsNames(parameters)+"))\n" +
+                .addStatement("contextAggregator = ContextAggregator.waitFor($T.asList(" + getEventsNames(parameters) + "))\n" +
                         "                .onReady(() -> {\n" +
-                        "                    target."+methodElement.getSimpleName().toString()+"("+getEventsNamesGetters(parameters)+");\n" +
+                        "                    target." + methodElement.getSimpleName().toString() + "(" + getEventsNamesGetters(parameters) + ");\n" +
                         "                })", TypeName.get(Arrays.class))
                 .build());
 
         aggregateType.addMethod(MethodSpec.methodBuilder("init")
                 .addModifiers(Modifier.PUBLIC)
-                .addParameter(TypeName.get(enclosingElement.asType()), "target")
+                .addParameter(wildcardTypeNameIfGeneric(), "target")
                 .returns(ClassName.get(elements.getPackageOf(enclosingElement).toString(), aggregateClassName))
                 .addStatement("this.target = target")
                 .addStatement("return this")
-        .build());
+                .build());
 
         parameters.forEach(p -> {
-            aggregateType.addMethod(MethodSpec.methodBuilder("complete"+processorUtil.capitalizeFirstLetter(p.getSimpleName().toString()))
+            aggregateType.addMethod(MethodSpec.methodBuilder("complete" + processorUtil.capitalizeFirstLetter(p.getSimpleName().toString()))
                     .addModifiers(Modifier.PUBLIC)
                     .returns(TypeName.VOID)
                     .addParameter(TypeName.get(p.asType()), "value")
-                    .addStatement(""+p.getSimpleName().toString()+"Context.complete(value)")
+                    .addStatement("" + p.getSimpleName().toString() + "Context.complete(value)")
 
-            .build());
+                    .build());
         });
 
         return Collections.singletonList(aggregateType);
     }
 
+    private TypeName wildcardTypeNameIfGeneric() {
+        TypeName typeName = ClassName.get(enclosingElement.asType());
+        if (typeName instanceof ParameterizedTypeName) {
+            ParameterizedTypeName parameterizedTypeName = (ParameterizedTypeName) typeName;
+            typeName = ParameterizedTypeName.get(ClassName.get((TypeElement) enclosingElement), parameterizedTypeName.typeArguments.stream()
+                    .map(typeName1 -> TypeVariableName.get("?")).toArray(TypeName[]::new));
+        }
+        return typeName;
+    }
+
     private String getEventsNames(List<? extends VariableElement> parameters) {
-        return parameters.stream().map(p -> p.getSimpleName().toString()+"Context")
+        return parameters.stream().map(p -> p.getSimpleName().toString() + "Context")
                 .collect(Collectors.joining(","));
     }
 
     private String getEventsNamesGetters(List<? extends VariableElement> parameters) {
-        return parameters.stream().map(p -> p.getSimpleName().toString()+"Context.get()")
+        return parameters.stream().map(p -> p.getSimpleName().toString() + "Context.get()")
                 .collect(Collectors.joining(","));
     }
 }
