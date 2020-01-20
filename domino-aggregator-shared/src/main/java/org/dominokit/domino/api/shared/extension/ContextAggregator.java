@@ -1,11 +1,16 @@
 package org.dominokit.domino.api.shared.extension;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class ContextAggregator {
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(ContextAggregator.class);
 
     private Set<ContextWait> contextsSet = new LinkedHashSet<>();
     private Set<ContextWait> removed = new LinkedHashSet<>();
@@ -23,6 +28,7 @@ public class ContextAggregator {
             c.onReady(() -> {
                 this.contextsSet.remove(c);
                 this.removed.add(c);
+                c.completed =true;
                 if (this.contextsSet.isEmpty()) {
                     handler.onReady();
                 }
@@ -33,12 +39,14 @@ public class ContextAggregator {
     public void reset() {
         contextsSet.addAll(removed);
         removed.clear();
+        contextsSet.forEach(contextWait -> contextWait.completed = false);
     }
 
     public void resetContext(ContextWait context) {
         if (removed.contains(context)) {
             contextsSet.add(context);
             removed.remove(context);
+            context.completed = false;
         }
     }
 
@@ -100,6 +108,7 @@ public class ContextAggregator {
     public static class ContextWait<T> {
         private Set<ReadyHandler> readyHandlers = new LinkedHashSet<>();
         private T result;
+        private boolean completed = false;
 
         public static <T> ContextWait<T> create() {
             return new ContextWait<>();
@@ -111,7 +120,9 @@ public class ContextAggregator {
 
         public void complete(T result) {
             this.result = result;
-            readyHandlers.forEach(ReadyHandler::onReady);
+            if (!completed) {
+                readyHandlers.forEach(ReadyHandler::onReady);
+            }
         }
 
         public T get() {
