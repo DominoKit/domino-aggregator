@@ -60,15 +60,28 @@ public class AggregateSourceWriter extends AbstractSourceBuilder {
                 .addStatement("return this")
                 .build());
 
-        parameters.forEach(p -> {
-            aggregateType.addMethod(MethodSpec.methodBuilder("complete" + processorUtil.capitalizeFirstLetter(p.getSimpleName().toString()))
+        parameters.forEach(parameter -> {
+            aggregateType.addMethod(MethodSpec.methodBuilder("complete" + processorUtil.capitalizeFirstLetter(parameter.getSimpleName().toString()))
                     .addModifiers(Modifier.PUBLIC)
                     .returns(TypeName.VOID)
-                    .addParameter(TypeName.get(p.asType()), "value")
-                    .addStatement("" + p.getSimpleName().toString() + "Context.complete(value)")
+                    .addParameter(TypeName.get(parameter.asType()), "value")
+                    .addStatement("" + parameter.getSimpleName().toString() + "Context.complete(value)")
 
                     .build());
+
+            aggregateType.addMethod(MethodSpec.methodBuilder("reset" + processorUtil.capitalizeFirstLetter(parameter.getSimpleName().toString()))
+                    .addModifiers(Modifier.PUBLIC)
+                    .returns(TypeName.VOID)
+                    .addStatement("contextAggregator.resetContext($L)", parameter.getSimpleName().toString() + "Context")
+                    .build());
         });
+
+        MethodSpec.Builder resetMethod = MethodSpec.methodBuilder("reset")
+                .addModifiers(Modifier.PUBLIC)
+                .returns(TypeName.VOID);
+        parameters.forEach(parameter -> resetMethod.addStatement("$L()", "reset" + processorUtil.capitalizeFirstLetter(parameter.getSimpleName().toString())));
+
+        aggregateType.addMethod(resetMethod.build());
 
         return Collections.singletonList(aggregateType);
     }
