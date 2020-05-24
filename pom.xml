@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.dominokit</groupId>
     <artifactId>domino-aggregator</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>domino-aggregator-shared</module>
         <module>domino-aggregator-apt</module>
@@ -12,6 +12,9 @@
 
     <packaging>pom</packaging>
     <name>domino-aggregator</name>
+
+    <url>https://github.com/DominoKit/domino-aggregator</url>
+    <description>provides a declarative way to wait for a set of events to be completed before executing some code.</description>
 
     <licenses>
         <license>
