@@ -1,4 +1,7 @@
 ![GWT3/J2CL compatible](https://img.shields.io/badge/GWT3/J2CL-compatible-brightgreen.svg)
+![Deploy](https://github.com/DominoKit/domino-aggregator/workflows/Deploy/badge.svg)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.dominokit/domino-aggregator/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.dominokit/domino-aggregator)
+
 
 # domino-aggregate
 
@@ -14,7 +17,7 @@ provides a declarative way to wait for a set of events to be completed before ex
 <dependency>
   <groupId>org.dominokit</groupId>
   <artifactId>domino-aggregator-shared</artifactId>
-  <version>1.0-rc.4-SNAPSHOT</version>
+  <version>1.0.0</version>
 </dependency>
 
 ```
@@ -24,7 +27,7 @@ provides a declarative way to wait for a set of events to be completed before ex
 <dependency>
   <groupId>org.dominokit</groupId>
   <artifactId>domino-aggregator-apt</artifactId>
-  <version>1.0-rc.4-SNAPSHOT</version>
+  <version>1.0.0</version>
   <scope>provided</scope>
 </dependency>
 ```
