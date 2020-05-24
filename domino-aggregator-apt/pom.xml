@@ -12,6 +12,9 @@
     <artifactId>domino-aggregator-apt</artifactId>
     <name>domino-aggregator-apt</name>
 
+    <url>https://github.com/DominoKit/domino-aggregator</url>
+    <description>provides a declarative way to wait for a set of events to be completed before executing some code.</description>
+
     <dependencies>
         <dependency>
             <groupId>org.dominokit</groupId>

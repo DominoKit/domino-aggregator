@@ -14,6 +14,7 @@
 
     <name>domino-aggregator-shared</name>
     <url>https://github.com/DominoKit/domino-aggregator</url>
+    <description>provides a declarative way to wait for a set of events to be completed before executing some code.</description>
 
     <build>
         <plugins>

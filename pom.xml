@@ -13,6 +13,9 @@
     <packaging>pom</packaging>
     <name>domino-aggregator</name>
 
+    <url>https://github.com/DominoKit/domino-aggregator</url>
+    <description>provides a declarative way to wait for a set of events to be completed before executing some code.</description>
+
     <licenses>
         <license>
             <name>Apache 2.0</name>
