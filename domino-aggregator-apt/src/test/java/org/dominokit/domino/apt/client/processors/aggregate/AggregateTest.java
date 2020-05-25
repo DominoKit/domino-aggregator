@@ -9,13 +9,13 @@ public class AggregateTest {
 
     private boolean called = false;
 
-    private EventsAggregate eventsAggregate = new EventsAggregate();
+    private EventsAggregate eventsAggregate;
     private String event1;
     private Long event2;
 
     @Before
     public void setup(){
-        eventsAggregate.init(this);
+        eventsAggregate= new EventsAggregate(this);
     }
 
     @Aggregate(name = "EventsAggregate")

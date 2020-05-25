@@ -52,6 +52,13 @@ public class AggregateSourceWriter extends AbstractSourceBuilder {
                         "                })", TypeName.get(Arrays.class))
                 .build());
 
+        aggregateType.addMethod(MethodSpec.constructorBuilder()
+                .addModifiers(Modifier.PUBLIC)
+                .addParameter(ParameterSpec.builder(wildcardTypeNameIfGeneric(), "target").build())
+                .addStatement("this()")
+                .addStatement("this.target = target")
+                .build());
+
         aggregateType.addMethod(MethodSpec.methodBuilder("init")
                 .addModifiers(Modifier.PUBLIC)
                 .addParameter(wildcardTypeNameIfGeneric(), "target")
