@@ -24,6 +24,11 @@
         </license>
     </licenses>
 
+    <organization>
+        <name>Dominokit</name>
+        <url>https://github.com/DominoKit</url>
+    </organization>
+
     <developers>
         <developer>
             <name>Ahmad K. Bawaneh</name>
@@ -39,6 +44,8 @@
         <url>https://github.com/DominoKit/domino-aggregator/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
+
+    <inceptionYear>2019</inceptionYear>
 
     <scm>
         <connection>scm:git:https://github.com/DominoKit/domino-aggregator.git</connection>
