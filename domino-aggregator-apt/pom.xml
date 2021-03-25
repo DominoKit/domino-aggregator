@@ -4,7 +4,7 @@
     <parent>
         <artifactId>domino-aggregator</artifactId>
         <groupId>org.dominokit</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -43,10 +43,6 @@
                         <configuration>
                             <artifactSet>
                                 <excludes>
-                                    <exclude>org.slf4j:slf4j-api</exclude>
-                                    <exclude>org.dominokit:domino-slf4j-logger</exclude>
-                                    <exclude>org.dominokit:domino-aggregator-shared</exclude>
-
                                     <exclude>javax.validation:validation-api</exclude>
                                     <exclude>javax.annotation:javax.annotation-api</exclude>
                                     <exclude>com.google.code.findbugs:jsr305</exclude>
