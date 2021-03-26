@@ -67,7 +67,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <domino.apt.commons.version>1.0.2</domino.apt.commons.version>
+        <domino.apt.commons.version>1.0.3</domino.apt.commons.version>
         <maven.fmt.plugin>2.9</maven.fmt.plugin>
         <maven.license.plugin>3.0</maven.license.plugin>
     </properties>
