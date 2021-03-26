@@ -4,7 +4,7 @@
     <parent>
         <artifactId>domino-aggregator</artifactId>
         <groupId>org.dominokit</groupId>
-        <version>1.0.2</version>
+        <version>HEAD-SNAPSHOT</version>
     </parent>
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
