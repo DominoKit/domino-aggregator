@@ -1,3 +1,6 @@
+
+![logoimage](https://raw.githubusercontent.com/DominoKit/DominoKit.github.io/master/logo/128.png)
+
 <a title="Gitter" href="https://gitter.im/DominoKit/domino"><img src="https://badges.gitter.im/Join%20Chat.svg"></a>
 [![Development Build Status](https://github.com/DominoKit/domino-aggregator/actions/workflows/deploy.yaml/badge.svg?branch=develop)](https://github.com/DominoKit/domino-aggregator/actions/workflows/deploy.yaml/badge.svg?branch=develop)
 ![Maven Central](https://img.shields.io/badge/Release-1.0.2-green)
