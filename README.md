@@ -16,7 +16,7 @@ provides a declarative way to wait for a set of events to be completed before ex
 
     - Api
  
-        ```
+        ```xml
         <dependency>
           <groupId>org.dominokit</groupId>
           <artifactId>domino-aggregator-shared</artifactId>
@@ -26,7 +26,7 @@ provides a declarative way to wait for a set of events to be completed before ex
         ```
     - Annotation processor
 
-        ```
+        ```xml
         <dependency>
           <groupId>org.dominokit</groupId>
           <artifactId>domino-aggregator-apt</artifactId>
@@ -39,7 +39,7 @@ provides a declarative way to wait for a set of events to be completed before ex
 
     - Api
 
-        ```
+        ```xml
         <dependency>
           <groupId>org.dominokit</groupId>
           <artifactId>domino-aggregator-shared</artifactId>
@@ -49,7 +49,7 @@ provides a declarative way to wait for a set of events to be completed before ex
         ```
     - Annotation processor
 
-        ```
+        ```xml
         <dependency>
           <groupId>org.dominokit</groupId>
           <artifactId>domino-aggregator-apt</artifactId>
